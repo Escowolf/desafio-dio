@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Example</title>
+</head>
+<body></body>
+<script>
+const vitorias = Number(prompt("Número de vitórias:"));
+const derrotas = Number(prompt("Número de derrotas:"));
+
+function classificadorRanker(vitorias, derrotas) {
+    let saldoVitorias = vitorias - derrotas;
+    let nivel = '';
+if(saldoVitorias>=0){
+    if (vitorias <= 10)
+        nivel = 'Ferro';
+    else if (vitorias > 10 && vitorias <= 20)
+        nivel = 'Bronze';
+    else if (vitorias > 20 && vitorias <= 50)
+        nivel = 'Prata';
+    else if (vitorias > 50 && vitorias <= 80)
+        nivel = 'Ouro';
+    else if (vitorias > 80 && vitorias <= 90)
+        nivel = 'Diamante';
+    else if (vitorias > 90 && vitorias <= 100)
+        nivel = 'Lendário';
+    else if (vitorias >= 101)
+        nivel = 'Imortal';
+    return 'O Herói tem saldo de ' + saldoVitorias + ' e está no nível de ' + nivel;
+} else if(saldoVitorias < 0){
+    return 'O Herói não tem saldo de vitórias suficiente para ser rankeado!'
+}
+}
+
+document.write(classificadorRanker(vitorias, derrotas));
+
+</script>
+</body>
+</html>
